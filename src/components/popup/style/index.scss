@@ -1,0 +1,66 @@
+@import '../../../../public/style/color.scss';
+@import '../../../../public/style/global.scss';
+@import '../../../../public/style/mixin.scss';
+@import '../../../../public/style/animation.scss';
+
+.rain-design-popup {
+  @include flex(row, center, center);
+  z-index: 900;
+  padding: 10px;
+  color: $color-white;
+
+  // 父级蒙版
+  &-list {
+    @include flex(row, center, center);
+    position: fixed;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    // z-index: -1;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  // type 类属性样式
+  &-default {
+    background-color: rgba(0, 0, 0, .5);
+  }
+
+  &-success {
+    background-color: $color-green-5;
+  }
+
+  &-warning {
+    background-color: $color-orange-5;
+  }
+
+  &-danger {
+    background-color: $color-red-5;
+  }
+
+  // position 类属性样式
+  &[class*="top"] {
+    @include fixed(top, 30px);
+
+    &[class*='Left'] {
+      @include fixed(left, 30px);
+    }
+
+    &[class*='Right'] {
+      @include fixed(right, 30px);
+    }
+  }
+
+  &-center {
+    position: fixed;
+  }
+
+  &-bottom {
+    @include fixed(bottom, 30px);
+  }
+
+  // animation 类属性样式
+  &-fade {
+    animation: popupFadeIn .3s ease-in;
+  }
+}

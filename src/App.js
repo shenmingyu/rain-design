@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import { Popup } from './components';
 
 function App() {
   return (
@@ -9,14 +10,45 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <a
+        <div
           className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+          onClick={() => {
+            Popup.show('Popup 面世了', { type: 'success', duration: 'infinite', position: 'top', animation: 'fade' })
+          }}
         >
-          Learn React
-        </a>
+          Popup
+        </div>
+        <div
+          className="App-link"
+          onClick={() => {
+            Popup.show('Popup 面世了', { type: 'success', duration: 'infinite', position: 'topLeft' })
+          }}
+        >
+          Popup
+        </div>
+        <div
+          className="App-link"
+          onClick={() => {
+            Popup.show('Popup 面世了', { type: 'success', duration: 'infinite', position: 'topRight' })
+          }}
+        >
+          Popup
+        </div>
+        <div
+          className="App-link"
+          onClick={() => {
+            Popup.show('Popup 面世了', { type: 'warning', duration: 'infinite', position: 'center' })
+          }}
+        >
+          Popup
+        </div><div
+          className="App-link"
+          onClick={() => {
+            Popup.show('Popup 面世了', { type: 'danger', duration: 'infinite', position: 'bottom' })
+          }}
+        >
+          Popup
+        </div>
       </header>
     </div>
   );
