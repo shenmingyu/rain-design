@@ -1,9 +1,12 @@
-@import '../../../../public/style/color.scss';
-@import '../../../../public/style/global.scss';
-@import '../../../../public/style/mixin.scss';
-@import '../../../../public/style/animation.scss';
+@import '../../../../static/style/color.scss';
+@import '../../../../static/style/global.scss';
+@import '../../../../static/style/mixin.scss';
+@import '../../../../static/style/animation.scss';
+@import '../../../../static/style/var.scss';
 
-.rain-design-popup {
+$prefix: rain-design-popup;
+
+.#{$prefix} {
   @include flex(row, center, center);
   z-index: 900;
   padding: 10px;
@@ -16,7 +19,6 @@
     pointer-events: none;
     top: 0;
     left: 0;
-    // z-index: -1;
     width: 100vw;
     height: 100vh;
   }
@@ -42,11 +44,11 @@
   &[class*="top"] {
     @include fixed(top, 30px);
 
-    &[class*='Left'] {
+    &[class*="Left"] {
       @include fixed(left, 30px);
     }
 
-    &[class*='Right'] {
+    &[class*="Right"] {
       @include fixed(right, 30px);
     }
   }
@@ -60,7 +62,43 @@
   }
 
   // animation 类属性样式
-  &-fade {
-    animation: popupFadeIn .3s ease-in;
+  &-fade.rain-design-popup-show {
+    animation: popupFadeIn $popup-open-close-animation-duration ease-in;
+  }
+
+  &-fade.rain-design-popup-hide {
+    animation: popupFadeOut $popup-open-close-animation-duration ease-in;
+  }
+
+  &-slide.#{$prefix}[class*="top"].#{$prefix}-show {
+    animation: popupTopSlideIn $popup-open-close-animation-duration ease-in-out;
+  }
+
+  &-slide.#{$prefix}[class*="top"].#{$prefix}-hide {
+    animation: popupTopSlideOut $popup-open-close-animation-duration ease-in-out;
+  }
+
+  &-slide.#{$prefix}[class*="topLeft"].#{$prefix}-show {
+    animation: popupTopLeftSlideIn $popup-open-close-animation-duration ease-in-out;
+  }
+
+  &-slide.#{$prefix}[class*="topLeft"].#{$prefix}-hide {
+    animation: popupTopLeftSlideOut $popup-open-close-animation-duration ease-in-out;
+  }
+
+  &-slide.#{$prefix}[class*="topRight"].#{$prefix}-show {
+    animation: popupTopRightSlideIn $popup-open-close-animation-duration ease-in-out;
+  }
+
+  &-slide.#{$prefix}[class*="topRight"].#{$prefix}-hide {
+    animation: popupTopRightSlideOut $popup-open-close-animation-duration ease-in-out;
+  }
+
+  &-slide.#{$prefix}[class*="bottom"].#{$prefix}-show {
+    animation: popupBottomSlideIn $popup-open-close-animation-duration ease-in-out;
+  }
+
+  &-slide.#{$prefix}[class*="bottom"].#{$prefix}-hide {
+    animation: popupBottomSlideOut $popup-open-close-animation-duration ease-in-out;
   }
 }

@@ -1,0 +1,1 @@
+export const pfxCls = 'rain-design'

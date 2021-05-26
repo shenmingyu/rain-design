@@ -1,0 +1,82 @@
+@import '../../../../static/style/color.scss';
+@import '../../../../static/style/global.scss';
+@import '../../../../static/style/mixin.scss';
+@import '../../../../static/style/animation.scss';
+@import '../../../../static/style/var.scss';
+
+$prefix: rain-design-button;
+$sizes: ((large, ), (big, ), (normal, ), (small, ), (tiny, ), (customize, ));
+$typesMap: (primary: (backgroundColor: $color-blue-6,
+    backgroundHoverColor:$color-blue-7,
+    textColor: $color-white,
+    textHoverColor: $color-white,
+  ),
+  secondary: (backgroundColor: $color-white,
+    backgroundHoverColor:$color-blue-0,
+    textColor: $color-black,
+    textHoverColor: $color-black,
+  ),
+  default: (backgroundColor: $color-grey-4,
+    backgroundHoverColor:$color-grey-5,
+    textColor: $color-black,
+    textHoverColor: $color-black,
+  ),
+  dash: (backgroundColor: $color-blue-grey-5,
+    backgroundHoverColor:$color-blue-grey-7,
+    textColor: $color-white,
+    textHoverColor: $color-white,
+  ));
+
+.#{$prefix} {
+  @include flex(row, center, center);
+  box-sizing: border-box;
+  border: 1px solid;
+  position: relative;
+  outline: none;
+  font-size: 14px;
+  font-family: 'Courier New', Courier, monospace;
+  cursor: pointer;
+
+  @each $type in map-keys($typesMap) {
+    &.#{$prefix}-#{$type} {
+      &[data-plain='true'] {
+        @include buttonTypes($typesMap, $type, false);
+      }
+
+      &[data-plain='false'] {
+        @include buttonTypes($typesMap, $type, true);
+      }
+    }
+  }
+
+  &-large {
+    width: 150px;
+    height: 60px;
+  }
+
+  &-big {
+    width: 125px;
+    height: 50px;
+  }
+
+  &-normal {
+    width: 100px;
+    height: 40px;
+  }
+
+  &-small {
+    width: 75px;
+    height: 30px;
+  }
+
+  &-tiny {
+    width: 50px;
+    height: 20px;
+  }
+
+  &-loading {}
+
+  &-danger {
+    background-color: $color-red-5;
+  }
+}

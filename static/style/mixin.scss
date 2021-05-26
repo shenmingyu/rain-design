@@ -1,0 +1,52 @@
+/**
+ * SCSS 方法定义
+ */
+@mixin buttonTypes($map, $type, $border: true) {
+
+  @each $key,
+  $value in $map {
+    @if $type==$key {
+      background-color: map-get($value, backgroundColor);
+      color: map-get($value, textColor);
+      border-color: map-get($value, backgroundColor);
+
+      &:hover {
+        background-color: map-get($value, backgroundHoverColor);
+        color: map-get($value, textHoverColor);
+        border-color: map-get($value, backgroundHoverColor);
+
+        @if $border {
+          border-color: map-get($value, textHoverColor);
+        }
+      }
+    }
+  }
+}
+
+/**
+ * flex 布局样式 mixin
+ * @mixin flex 布局函数，传入参数定义，默认居中
+ * $direction 布局方向
+ * $horizontally 水平布局
+ * $vertically 垂直布局
+ * $wrap 换行 */
+@mixin flex($direction: row, $horizontally: flex-start, $vertically: center, $wrap: wrap) {
+  display: flex;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+
+  @if $direction==column or $direction==column {
+    justify-content: $vertically;
+    align-items: $horizontally;
+  }
+
+  @else {
+    justify-content: $horizontally;
+    align-items: $vertically;
+  }
+}
+
+@mixin fixed($position, $distance) {
+  position: fixed;
+  #{$position}: $distance;
+}

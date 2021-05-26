@@ -1,0 +1,27 @@
+@import '../static/style/color.scss';
+@import '../static/style/global.scss';
+@import '../static/style/mixin.scss';
+@import '../static/style/animation.scss';
+@import '../static/style/var.scss';
+
+
+.demo {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: $color-blue-grey-9;
+
+  &-card {
+    width: 1080px;
+    margin: 0 auto;
+
+  }
+
+  &-buttons {
+    @include flex(row, space-around);
+    width: 1080px;
+    margin: 20px auto;
+  }
+}
