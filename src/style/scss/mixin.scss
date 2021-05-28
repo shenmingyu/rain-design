@@ -10,13 +10,26 @@
       color: map-get($value, textColor);
       border-color: map-get($value, backgroundColor);
 
+      @if $border {
+        border-style: map-get($value, borderStyle);
+        border-color: map-get($value, borderColor);
+      }
+
+      // @if $type=='ghost' {
+      //   background-color: map-get($value, backgroundColor);
+      //   color: map-get($value, textColor);
+      //   // background-clip: text;
+      //   border-style: map-get($value, borderStyle);
+      //   border-color: map-get($value, borderColor);
+      // }
+
       &:hover {
         background-color: map-get($value, backgroundHoverColor);
         color: map-get($value, textHoverColor);
-        border-color: map-get($value, backgroundHoverColor);
 
         @if $border {
-          border-color: map-get($value, textHoverColor);
+          border-style: map-get($value, borderStyle);
+          border-color: map-get($value, borderHoverColor);
         }
       }
     }

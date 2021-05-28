@@ -13,7 +13,7 @@ class Button extends Component {
       'primary',
       'secondary',
       'default',
-      'dash',
+      'ghost',
       // 变化类
       // 不常用
       'success',
@@ -74,18 +74,19 @@ class Button extends Component {
 
   render() {
     const { pfxCls } = this.state;
-    const { children, type, size, style, round, mimetic, disabled, danger, loading, circle, spread, plain } = this.props;
+    const { children, type, size, style, round, mimetic, disabled, danger, loading, circle, spread, plain, dashed } = this.props;
     return (
       <div
         className={classNames(pfxCls, {
           [`${pfxCls}-${type}`]: !!type,
           [`${pfxCls}-${size}`]: !!size,
           [`${pfxCls}-loading`]: loading,
-          [`${pfxCls}-danger`]: danger,
+          [`${pfxCls}-danger`]: danger, // danger 属性生效时，会强制当前按钮颜色为红色
+          [`${pfxCls}-dashed`]: dashed,   // dashed 属性生效时，会将边框设置为虚线
           [`${pfxCls}-circle`]: circle,
           [`${pfxCls}-mimetic`]: mimetic,
           [`${pfxCls}-disabled`]: disabled,
-          [`${pfxCls}-spread`]: spread,
+          [`${pfxCls}-spread`]: spread, // 当 spread 属性生效时，添加点击时的博文扩散效果
         })}
         data-plain={plain}
         style={{ ...style, borderRadius: round }}

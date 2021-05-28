@@ -1,8 +1,8 @@
-@import '../../../../static/style/color.scss';
-@import '../../../../static/style/global.scss';
-@import '../../../../static/style/mixin.scss';
-@import '../../../../static/style/animation.scss';
-@import '../../../../static/style/var.scss';
+@import '../../../style/scss/color.scss';
+@import '../../../style/scss/global.scss';
+@import '../../../style/scss/mixin.scss';
+@import '../../../style/scss/animation.scss';
+@import '../../../style/scss/var.scss';
 
 $prefix: rain-design-button;
 $sizes: ((large, ), (big, ), (normal, ), (small, ), (tiny, ), (customize, ));
@@ -10,27 +10,36 @@ $typesMap: (primary: (backgroundColor: $color-blue-6,
     backgroundHoverColor:$color-blue-7,
     textColor: $color-white,
     textHoverColor: $color-white,
+    borderColor:$color-white,
+    borderHoverColor:$color-white,
   ),
   secondary: (backgroundColor: $color-white,
     backgroundHoverColor:$color-blue-0,
-    textColor: $color-black,
-    textHoverColor: $color-black,
+    textColor: $color-blue-6,
+    textHoverColor: $color-blue-7,
+    borderColor:$color-blue-6,
+    borderHoverColor:$color-blue-7,
   ),
   default: (backgroundColor: $color-grey-4,
     backgroundHoverColor:$color-grey-5,
     textColor: $color-black,
     textHoverColor: $color-black,
+    borderColor:$color-black,
+    borderHoverColor:$color-black,
   ),
-  dash: (backgroundColor: $color-blue-grey-5,
-    backgroundHoverColor:$color-blue-grey-7,
-    textColor: $color-white,
-    textHoverColor: $color-white,
+  ghost: (backgroundColor: transparent,
+    backgroundHoverColor: transparent,
+    textColor: $color-blue-grey-5,
+    textHoverColor: $color-blue-7,
+    borderColor: $color-blue-grey-5,
+    borderHoverColor:$color-blue-7,
   ));
 
 .#{$prefix} {
   @include flex(row, center, center);
   box-sizing: border-box;
-  border: 1px solid;
+  border-width: 1px;
+  border-style: solid;
   position: relative;
   outline: none;
   font-size: 14px;
@@ -78,5 +87,9 @@ $typesMap: (primary: (backgroundColor: $color-blue-6,
 
   &-danger {
     background-color: $color-red-5;
+  }
+
+  &-dashed {
+    border-style: dashed;
   }
 }
